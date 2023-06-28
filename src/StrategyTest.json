@@ -1,0 +1,19 @@
+{
+  "strategyName": "MOVINGMOMENTUM",
+  "noOfBars": 50,
+  "interval": "1min(s)",
+  "backTest": {
+    "Comparative Loss": "-0.7",
+    "Comparative Profit": "0",
+    "Comparative Return Percentage": "0.99997695852534562211981566820276"
+  },
+  "tradesRecord": {
+    "Last Exit Trade": {
+      "Trade{type=SELL, index=42, price=30379.3, amount=1}": "{end time: 2023-06-27T10:55+01:00[Europe/London], close price: 30379.300000, open price: 30374.800000, low price: 30374.000000, high price: 30380.000000, volume: 0.000000}"
+    },
+    "Last Entry Trade": {
+      "Trade{type=BUY, index=5, price=30380.0, amount=1}": "{end time: 2023-06-27T10:18+01:00[Europe/London], close price: 30380.000000, open price: 30384.600000, low price: 30380.000000, high price: 30386.000000, volume: 0.000000}"
+    }
+  },
+  "action": "EXIT"
+}

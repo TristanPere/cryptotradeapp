@@ -1,0 +1,18 @@
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: start;
+  // justify-content: flex-start;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.options{
+  padding-top: 1vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+
