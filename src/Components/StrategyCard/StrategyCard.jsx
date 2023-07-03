@@ -1,7 +1,7 @@
 import { React } from "react";
 import "./StrategyCard.scss";
 
-const StrategyCard = ({ strategyRecord }) => {
+const StrategyCard = ({ strategyRecord, summary }) => {
   let tradesRecord = "";
   let backTest = "";
   let strategyName = "";
@@ -20,19 +20,18 @@ const StrategyCard = ({ strategyRecord }) => {
             const trade = Object.keys(strategyRecord.tradesRecord[key])[0];
             const candle = strategyRecord.tradesRecord[key][trade];
             let candleFormated = "";
-            candleFormated +=
-              "\n" + candle.split(",")[0].slice(11,21) + "\n";
-              for (let i = 1; i <= 4; i++) {
-                candleFormated +=
+            candleFormated += "\n" + candle.split(",")[0].slice(11, 21) + "\n";
+            for (let i = 1; i <= 4; i++) {
+              candleFormated +=
                 candle
-                  .split(",")[i]
-                  .trim()
-                  .split(": ")[0].concat(": ", candle
-                  .split(",")[i]
-                  .trim()
-                  .split(": ")[1].slice(0,8)) + "\n";
-                
-              }
+                  .split(",")
+                  [i].trim()
+                  .split(": ")[0]
+                  .concat(
+                    ": ",
+                    candle.split(",")[i].trim().split(": ")[1].slice(0, 8)
+                  ) + "\n";
+            }
             tradesRecord += key + ": " + candleFormated + "\n";
           });
         } else if (key === "backTest") {
@@ -57,9 +56,10 @@ const StrategyCard = ({ strategyRecord }) => {
       }
     });
   }
-
+  console.log(summary);
   return (
     <div className="container">
+      <p>Summary of all strategies: {summary}</p>
       <p>{strategyName}</p>
       <p>{action}</p>
       <p>{noOfBars}</p>

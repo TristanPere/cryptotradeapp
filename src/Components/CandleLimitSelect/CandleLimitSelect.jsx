@@ -4,8 +4,7 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-
-export default function IntervalSelect({ handleChange, interval }) {
+export default function StrategySelect({ handleChange, value }) {
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl
@@ -20,25 +19,22 @@ export default function IntervalSelect({ handleChange, interval }) {
             color: "white",
           }}
         >
-          Interval
+          Data Point Limit
         </InputLabel>
         <Select
           sx={{ color: "white" }}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={interval}
-          label="Interval"
+          value={value}
           onChange={handleChange}
         >
-          <MenuItem value={"1m"}>1 minute</MenuItem>
-          <MenuItem value={"5m"}>5 minute</MenuItem>
-          <MenuItem value={"15m"}>15 minute</MenuItem>
-          <MenuItem value={"30m"}>30 minute</MenuItem>
-          <MenuItem value={"1h"}>1 hour</MenuItem>
-          <MenuItem value={"2h"}>2 hour</MenuItem>
-          <MenuItem value={"4h"}>4 hour</MenuItem>
-          <MenuItem value={"6h"}>6 hour</MenuItem>
-          <MenuItem value={"1d"}>1 day</MenuItem>
+          <MenuItem value={"25"}>25</MenuItem>
+          <MenuItem value={"50"}>50</MenuItem>
+          <MenuItem value={"75"}>75</MenuItem>
+          <MenuItem value={"100"}>100</MenuItem>
+          <MenuItem value={"200"}>200</MenuItem>
+          <MenuItem value={"350"}>350</MenuItem>
+          <MenuItem value={"500"}>500</MenuItem>
         </Select>
       </FormControl>
     </Box>

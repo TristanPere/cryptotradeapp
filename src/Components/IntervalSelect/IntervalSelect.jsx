@@ -4,8 +4,8 @@ import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
-import "./StrategySelect.scss";
-export default function StrategySelect({ handleChange, strategy }) {
+
+export default function IntervalSelect({ handleChange, interval }) {
   return (
     <Box sx={{ minWidth: 120 }}>
       <FormControl
@@ -20,21 +20,24 @@ export default function StrategySelect({ handleChange, strategy }) {
             color: "white",
           }}
         >
-          Strategy
+          Interval
         </InputLabel>
         <Select
           sx={{ color: "white" }}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={strategy}
+          value={interval}
           onChange={handleChange}
         >
-          <MenuItem value={"MovingMomentum"}>Moving Momentum</MenuItem>
-          <MenuItem value={"CCICorrection"}>CCI Correction</MenuItem>
-          <MenuItem value={"ADX"}>ADX</MenuItem>
-          <MenuItem value={"RSI2"}>RSI 2</MenuItem>
-          <MenuItem value={"GlobalExtrema"}>Global Extrema</MenuItem>
-          <MenuItem value={"UnstableIndicator"}>Unstable Indicator</MenuItem>
+          <MenuItem value={"1d"}>1 day</MenuItem>
+          <MenuItem value={"6h"}>6 hour</MenuItem>
+          <MenuItem value={"4h"}>4 hour</MenuItem>
+          <MenuItem value={"2h"}>2 hour</MenuItem>
+          <MenuItem value={"1h"}>1 hour</MenuItem>
+          <MenuItem value={"30m"}>30 minute</MenuItem>
+          <MenuItem value={"15m"}>15 minute</MenuItem>
+          <MenuItem value={"5m"}>5 minute</MenuItem>
+          <MenuItem value={"1m"}>1 minute</MenuItem>
         </Select>
       </FormControl>
     </Box>

@@ -3,13 +3,11 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Slider from "@mui/material/Slider";
 
-export default function NonLinearSlider({handleChange,value}) {
- 
-
+export default function NonLinearSlider({ handleChange, value }) {
   return (
     <Box sx={{ width: 250 }}>
       <Typography id="non-linear-slider" gutterBottom>
-        Storage: {value}
+        Number Of Data Points: {value}
       </Typography>
       <Slider
         value={value}

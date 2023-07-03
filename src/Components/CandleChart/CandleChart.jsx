@@ -1,9 +1,8 @@
 import { ColorType, createChart } from "lightweight-charts";
 import { React, useEffect, useRef, useState } from "react";
-
-const CandleChart = ({candles}) => {
+import "./CandleChart.scss";
+const CandleChart = ({ candles }) => {
   const chartContainerRef = useRef();
-  
 
   useEffect(() => {
     const chart = createChart(chartContainerRef.current, {
@@ -20,10 +19,10 @@ const CandleChart = ({candles}) => {
       wickUpColor: "#26a69a",
       wickDownColor: "#ef5350",
     });
-     candlestickSeries.setData(candles);
+    candlestickSeries.setData(candles);
     return () => [chart.remove()];
   }, [candles]);
 
-  return <div ref={chartContainerRef}></div>;
+  return <div className="candleChart" ref={chartContainerRef}></div>;
 };
 export default CandleChart;

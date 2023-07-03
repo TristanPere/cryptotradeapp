@@ -20,14 +20,13 @@ export default function PairSelect({ handleChange, pair }) {
             color: "white",
           }}
         >
-          Pair
+          Stock Pair
         </InputLabel>
         <Select
           sx={{ color: "white" }}
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={pair}
-          label="Pair"
           onChange={handleChange}
         >
           <MenuItem value={"BTC-USD"}>BTC-USD</MenuItem>
