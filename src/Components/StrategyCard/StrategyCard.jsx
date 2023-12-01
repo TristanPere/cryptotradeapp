@@ -35,7 +35,7 @@ const StrategyCard = ({ strategyRecord, summary }) => {
             tradesRecord += key + ": " + candleFormated + "\n";
           });
         } else if (key === "backTest") {
-          backTest += "Back Test Results" + ": \n";
+          backTest += "Back Test Results: \n";
           const backTestkeys = Object.keys(strategyRecord.backTest);
           backTestkeys.forEach((comparison) => {
             backTest +=
@@ -49,14 +49,13 @@ const StrategyCard = ({ strategyRecord, summary }) => {
         } else if (key === "noOfBars") {
           noOfBars = "Number of Candles Analysed: " + strategyRecord[key];
         } else if (key === "interval") {
-          interval = "Interval" + ": " + strategyRecord[key];
+          interval = "Interval: " + strategyRecord[key];
         } else if (key === "action") {
           action = "Recommended Action: " + strategyRecord[key];
         }
       }
     });
   }
-  console.log(summary);
   return (
     <div className="container">
       <p>Summary of all strategies: {summary}</p>

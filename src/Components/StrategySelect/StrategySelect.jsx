@@ -30,10 +30,17 @@ export default function StrategySelect({ handleChange, strategy }) {
           onChange={handleChange}
         >
           <MenuItem value={"MovingMomentum"}>Moving Momentum</MenuItem>
+          <MenuItem value={"BOLLINGERRSI"}>Bollinger Band RSI</MenuItem>
+          <MenuItem value={"CANDLESTICK"}>Candlestick Analysis</MenuItem>
           <MenuItem value={"CCICorrection"}>CCI Correction</MenuItem>
-          <MenuItem value={"ADX"}>ADX</MenuItem>
-          <MenuItem value={"RSI2"}>RSI 2</MenuItem>
+          <MenuItem value={"COMBINATION"}>Combination</MenuItem>
           <MenuItem value={"GlobalExtrema"}>Global Extrema</MenuItem>
+          <MenuItem value={"ICHIMOKUCLOUD"}>Ichimoku Cloud</MenuItem>
+          <MenuItem value={"MEANREVERSION"}>Mean Reversion</MenuItem>
+          <MenuItem value={"RSI2"}>RSI 2</MenuItem>
+          <MenuItem value={"TRENDBREAKOUTMOMENTUM"}>
+            Trend Momentum Breakout
+          </MenuItem>
           <MenuItem value={"UnstableIndicator"}>Unstable Indicator</MenuItem>
         </Select>
       </FormControl>

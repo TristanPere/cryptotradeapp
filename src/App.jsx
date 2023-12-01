@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import "./App.scss";
 import StrategyCard from "./Components/StrategyCard/StrategyCard";
-import CandleLimitSelect from "./Components/CandleLimitSelect/CandleLimitSelect";
 import StrategySelect from "./Components/StrategySelect/StrategySelect";
 import IntervalSelect from "./Components/IntervalSelect/IntervalSelect";
 import PairSelect from "./Components/PairSelect/PairSelect";
@@ -13,9 +12,7 @@ function App() {
   const [candles, SetCandles] = useState([]);
   const [strategy, setStrategy] = useState("MovingMomentum");
   const [interval, setInterval] = useState("1d");
-  const [candleLimit, setCandleLimit] = useState(350);
   const [pair, setPair] = useState("BTC-USD");
-
   const getStrategyRecord = async () => {
     let url =
       "http://localhost:8080/strategy/" +
@@ -23,29 +20,19 @@ function App() {
       "/" +
       interval +
       "/" +
-      strategy +
-      "/" +
-      candleLimit;
+      strategy;
     const res = await fetch(url);
     const data = await res.json();
     setStategyRecord(data);
   };
   const getSummary = async () => {
-    let url =
-      "http://localhost:8080/summary/" +
-      pair +
-      "/" +
-      interval +
-      "/" +
-      candleLimit;
+    let url = "http://localhost:8080/summary/" + pair + "/" + interval;
     const res = await fetch(url);
     const data = await res.text();
-    console.log(data);
     setSummary(data);
   };
   const getCandles = async () => {
-    let url =
-      "http://localhost:8080/" + pair + "/" + interval + "/" + candleLimit;
+    let url = "http://localhost:8080/" + pair + "/" + interval;
     const res = await fetch(url);
     const data = await res.json();
     const candles = await data.map((candle) => {
@@ -61,6 +48,7 @@ function App() {
   };
   const handleStratChange = (event) => {
     setStrategy(event.target.value);
+    console.log(event.target.value);
   };
   const handleIntervalChange = (event) => {
     setInterval(event.target.value);
@@ -68,17 +56,13 @@ function App() {
   const handlePairChange = (event) => {
     setPair(event.target.value);
   };
-
-  const handleCandleLimitChange = (event, candleLimit) => {
-    if (typeof candleLimit === "number") {
-      setCandleLimit(candleLimit);
-    }
-  };
   useEffect(() => {
     getSummary();
+  }, [pair, interval]);
+  useEffect(() => {
     getCandles();
     getStrategyRecord();
-  }, [strategy, interval, pair, candleLimit]);
+  }, [strategy, interval, pair]);
 
   return (
     <div className="app">
@@ -89,10 +73,6 @@ function App() {
           strategy={interval}
         />
         <PairSelect handleChange={handlePairChange} strategy={interval} />
-        <CandleLimitSelect
-          handleChange={handleCandleLimitChange}
-          value={candleLimit}
-        />
       </div>
       <div className="results">
         <StrategyCard strategyRecord={strategyRecord} summary={summary} />
